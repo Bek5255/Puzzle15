@@ -30,21 +30,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button1 = (Button) findViewById(R.id.button1);
-        button2 = (Button) findViewById(R.id.button2);
-        button3 = (Button) findViewById(R.id.button3);
-        button4 = (Button) findViewById(R.id.button4);
-        button5 = (Button) findViewById(R.id.button5);
-        button6 = (Button) findViewById(R.id.button6);
-        button7 = (Button) findViewById(R.id.button7);
-        button8 = (Button) findViewById(R.id.button8);
-        button9 = (Button) findViewById(R.id.button9);
-        button10 = (Button) findViewById(R.id.button10);
-        button11 = (Button) findViewById(R.id.button11);
-        button12 = (Button) findViewById(R.id.button12);
-        button13 = (Button) findViewById(R.id.button13);
-        button14 = (Button) findViewById(R.id.button14);
-        button15 = (Button) findViewById(R.id.button15);
-        button16 = (Button) findViewById(R.id.button16);
+        button1 = findViewById(R.id.button1);
+        button2 = findViewById(R.id.button2);
+        button1.setEnabled(false);
+        button2.setEnabled(false);
+        button2.setText(button1.getText());
+
+
     }
+
 }

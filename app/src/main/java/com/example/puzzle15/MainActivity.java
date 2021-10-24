@@ -7,8 +7,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Chronometer;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -28,9 +35,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public Button button14;
     public Button button15;
     public Button button16;
-    String position;
+    public Chronometer chronometer;
+    public Button restart;
     int wereEmpty;
     String empty = "16";
+    TextView clicks;
+    int numberOfClick;
 
 
     @Override
@@ -53,6 +63,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button14 = findViewById(R.id.button14);
         button15 = findViewById(R.id.button15);
         button16 = findViewById(R.id.button16);
+        chronometer = findViewById(R.id.chronometer);
+        restart = findViewById(R.id.restart);
+        clicks = findViewById(R.id.numberOfClick);
 
         button1.setOnClickListener(this);
         button2.setOnClickListener(this);
@@ -70,10 +83,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button14.setOnClickListener(this);
         button15.setOnClickListener(this);
         button16.setOnClickListener(this);
+        restart.setOnClickListener(this);
 
+
+        chronometer.start();
         // button13.setEnabled(false);
         // button14.setEnabled(false);
         // button2.setText(button1.getText());
+        List<Integer> numbers = new ArrayList<>();
+        for (int i = 1; i <= 16; i++) {
+            numbers.add(i);
+        }
+        Collections.shuffle(numbers);
+        button1.setText(String.valueOf(numbers.get(0)));
+        button2.setText(String.valueOf(numbers.get(1)));
+        button3.setText(String.valueOf(numbers.get(2)));
+        button4.setText(String.valueOf(numbers.get(3)));
+        button5.setText(String.valueOf(numbers.get(4)));
+        button6.setText(String.valueOf(numbers.get(5)));
+        button7.setText(String.valueOf(numbers.get(6)));
+        button8.setText(String.valueOf(numbers.get(7)));
+        button9.setText(String.valueOf(numbers.get(8)));
+        button10.setText(String.valueOf(numbers.get(9)));
+        button11.setText(String.valueOf(numbers.get(10)));
+        button12.setText(String.valueOf(numbers.get(11)));
+        button13.setText(String.valueOf(numbers.get(12)));
+        button14.setText(String.valueOf(numbers.get(13)));
+        button15.setText(String.valueOf(numbers.get(14)));
+        button16.setText(String.valueOf(numbers.get(15)));
 
         if (button1.getText().equals(empty)) {
             wereEmpty = 1;
@@ -132,17 +169,48 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void setBluer(Button button) {
         button.setText(empty);
         button.setEnabled(false);
-        button.setTextColor(R.color.white);
     }
 
     @SuppressLint("ResourceAsColor")
     public void setWieter(Button button) {
-        button.setTextColor(R.color.black);
         button.setEnabled(true);
     }
 
+
     public void onClick(View view) {
+        numberOfClick++;
+        clicks.setText(String.valueOf(numberOfClick));
+
         switch (view.getId()) {
+            case R.id.restart:
+                chronometer.setBase(SystemClock.elapsedRealtime());
+                chronometer.start();
+                numberOfClick = 0;
+                clicks.setText(String.valueOf(numberOfClick));
+
+                List<Integer> solution = new ArrayList<>();
+                for (int i = 1; i <= 16; i++) {
+                    solution.add(i);
+                }
+                Collections.shuffle(solution);
+                button1.setText(String.valueOf(solution.get(0)));
+                button2.setText(String.valueOf(solution.get(1)));
+                button3.setText(String.valueOf(solution.get(2)));
+                button4.setText(String.valueOf(solution.get(3)));
+                button5.setText(String.valueOf(solution.get(4)));
+                button6.setText(String.valueOf(solution.get(5)));
+                button7.setText(String.valueOf(solution.get(6)));
+                button8.setText(String.valueOf(solution.get(7)));
+                button9.setText(String.valueOf(solution.get(8)));
+                button10.setText(String.valueOf(solution.get(9)));
+                button11.setText(String.valueOf(solution.get(10)));
+                button12.setText(String.valueOf(solution.get(11)));
+                button13.setText(String.valueOf(solution.get(12)));
+                button14.setText(String.valueOf(solution.get(13)));
+                button15.setText(String.valueOf(solution.get(14)));
+                button16.setText(String.valueOf(solution.get(15)));
+                break;
+
             case R.id.button1:
                 if (wereEmpty == 2) {
                     button2.setText(String.valueOf(button1.getText()));
@@ -205,7 +273,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     setWieter(button8);
                 }
                 break;
-
 
             case R.id.button5:
                 if (wereEmpty == 1) {
@@ -289,7 +356,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     setWieter(button12);
                 }
                 break;
-
 
             case R.id.button9:
                 if (wereEmpty == 5) {

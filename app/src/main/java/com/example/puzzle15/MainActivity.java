@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String empty = "16";
     TextView clicks;
     int numberOfClick;
-
+    boolean youWin = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,85 +83,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button14.setOnClickListener(this);
         button15.setOnClickListener(this);
         button16.setOnClickListener(this);
+        setBluer(button16);
         restart.setOnClickListener(this);
 
-
         chronometer.start();
-        // button13.setEnabled(false);
-        // button14.setEnabled(false);
-        // button2.setText(button1.getText());
-        List<Integer> numbers = new ArrayList<>();
-        for (int i = 1; i <= 16; i++) {
-            numbers.add(i);
-        }
-        Collections.shuffle(numbers);
-        button1.setText(String.valueOf(numbers.get(0)));
-        button2.setText(String.valueOf(numbers.get(1)));
-        button3.setText(String.valueOf(numbers.get(2)));
-        button4.setText(String.valueOf(numbers.get(3)));
-        button5.setText(String.valueOf(numbers.get(4)));
-        button6.setText(String.valueOf(numbers.get(5)));
-        button7.setText(String.valueOf(numbers.get(6)));
-        button8.setText(String.valueOf(numbers.get(7)));
-        button9.setText(String.valueOf(numbers.get(8)));
-        button10.setText(String.valueOf(numbers.get(9)));
-        button11.setText(String.valueOf(numbers.get(10)));
-        button12.setText(String.valueOf(numbers.get(11)));
-        button13.setText(String.valueOf(numbers.get(12)));
-        button14.setText(String.valueOf(numbers.get(13)));
-        button15.setText(String.valueOf(numbers.get(14)));
-        button16.setText(String.valueOf(numbers.get(15)));
-
-        if (button1.getText().equals(empty)) {
-            wereEmpty = 1;
-            setBluer(button1);
-        } else if (button2.getText().equals(empty)) {
-            wereEmpty = 2;
-            setBluer(button2);
-        } else if (button3.getText().equals(empty)) {
-            wereEmpty = 3;
-            setBluer(button3);
-        } else if (button4.getText().equals(empty)) {
-            wereEmpty = 4;
-            setBluer(button4);
-        } else if (button5.getText().equals(empty)) {
-            wereEmpty = 5;
-            setBluer(button5);
-        } else if (button6.getText().equals(empty)) {
-            wereEmpty = 6;
-            setBluer(button6);
-        } else if (button7.getText().equals(empty)) {
-            wereEmpty = 7;
-            setBluer(button7);
-        } else if (button8.getText().equals(empty)) {
-            wereEmpty = 8;
-            setBluer(button8);
-        } else if (button9.getText().equals(empty)) {
-            wereEmpty = 9;
-            setBluer(button9);
-        } else if (button10.getText().equals(empty)) {
-            wereEmpty = 10;
-            setBluer(button10);
-        } else if (button11.getText().equals(empty)) {
-            wereEmpty = 11;
-            setBluer(button11);
-        } else if (button12.getText().equals(empty)) {
-            wereEmpty = 12;
-            setBluer(button12);
-        } else if (button13.getText().equals(empty)) {
-            wereEmpty = 13;
-            setBluer(button13);
-        } else if (button14.getText().equals(empty)) {
-            wereEmpty = 14;
-            setBluer(button14);
-        } else if (button15.getText().equals(empty)) {
-            wereEmpty = 15;
-            setBluer(button15);
-        } else {
-            wereEmpty = 16;
-            setBluer(button16);
-        }
-
 
     }
 
@@ -175,6 +100,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void setWieter(Button button) {
         button.setEnabled(true);
     }
+
 
 
     public void onClick(View view) {
@@ -209,7 +135,76 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 button14.setText(String.valueOf(solution.get(13)));
                 button15.setText(String.valueOf(solution.get(14)));
                 button16.setText(String.valueOf(solution.get(15)));
+                restart.setText("restart");
+
+                setWieter(button1);
+                setWieter(button2);
+                setWieter(button3);
+                setWieter(button4);
+                setWieter(button5);
+                setWieter(button6);
+                setWieter(button7);
+                setWieter(button8);
+                setWieter(button9);
+                setWieter(button10);
+                setWieter(button11);
+                setWieter(button12);
+                setWieter(button13);
+                setWieter(button14);
+                setWieter(button15);
+                setWieter(button16);
+
+                if (button1.getText().equals(empty)) {
+                    wereEmpty = 1;
+                    setBluer(button1);
+                } else if (button2.getText().equals(empty)) {
+                    wereEmpty = 2;
+                    setBluer(button2);
+                } else if (button3.getText().equals(empty)) {
+                    wereEmpty = 3;
+                    setBluer(button3);
+                } else if (button4.getText().equals(empty)) {
+                    wereEmpty = 4;
+                    setBluer(button4);
+                } else if (button5.getText().equals(empty)) {
+                    wereEmpty = 5;
+                    setBluer(button5);
+                } else if (button6.getText().equals(empty)) {
+                    wereEmpty = 6;
+                    setBluer(button6);
+                } else if (button7.getText().equals(empty)) {
+                    wereEmpty = 7;
+                    setBluer(button7);
+                } else if (button8.getText().equals(empty)) {
+                    wereEmpty = 8;
+                    setBluer(button8);
+                } else if (button9.getText().equals(empty)) {
+                    wereEmpty = 9;
+                    setBluer(button9);
+                } else if (button10.getText().equals(empty)) {
+                    wereEmpty = 10;
+                    setBluer(button10);
+                } else if (button11.getText().equals(empty)) {
+                    wereEmpty = 11;
+                    setBluer(button11);
+                } else if (button12.getText().equals(empty)) {
+                    wereEmpty = 12;
+                    setBluer(button12);
+                } else if (button13.getText().equals(empty)) {
+                    wereEmpty = 13;
+                    setBluer(button13);
+                } else if (button14.getText().equals(empty)) {
+                    wereEmpty = 14;
+                    setBluer(button14);
+                } else if (button15.getText().equals(empty)) {
+                    wereEmpty = 15;
+                    setBluer(button15);
+                } else {
+                    wereEmpty = 16;
+                    setBluer(button16);
+                }
                 break;
+
 
             case R.id.button1:
                 if (wereEmpty == 2) {
@@ -502,8 +497,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
         }
+        if (wereEmpty == 16) {
+          boolean winner=  button1.getText().equals("1") &&
+                        button2.getText().equals("2") &&
+                        button3.getText().equals("3") &&
+                        button4.getText().equals("4") &&
+                        button5.getText().equals("5") &&
+                        button6.getText().equals("6") &&
+                        button7.getText().equals("7") &&
+                        button8.getText().equals("8") &&
+                        button9.getText().equals("9") &&
+                        button10.getText().equals("10") &&
+                        button11.getText().equals("11") &&
+                        button12.getText().equals("12") &&
+                        button13.getText().equals("13") &&
+                        button14.getText().equals("14") &&
+                        button15.getText().equals("15");
+          if (winner){
+              Intent intent = new Intent(this, Winner.class);
+              startActivity(intent);
+          }
 
+            }
+        }
     }
-
-
-}

@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Program Files/adobe/Puzzle15/app/src/main/res/layout/activity_main.xml" value="0.19479166666666667" />
+        <entry key="..\:/Program Files/adobe/Puzzle15/app/src/main/res/drawable/select_button.xml" value="0.3671875" />
+        <entry key="..\:/Program Files/adobe/Puzzle15/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Program Files/adobe/Puzzle15/app/src/main/res/layout/activity_winner.xml" value="0.20052083333333334" />
       </map>
     </option>
   </component>
